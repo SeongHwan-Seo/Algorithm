@@ -15,11 +15,14 @@ input = readLine()!.split(separator: " ").map{ Int(String($0))! }
 func BinarySearch(arr: [Int], target: Int) -> Int {
     var start = 0
     var end = arr.count - 1
+    var count = 0
 
-    while end >= start {
+    while end >= start && !arr.contains(target) {
         let mid = (start + end) / 2
         if arr[mid] == target {
-            return 1
+            
+            count += 1
+            
         } else if arr[mid] > target {
             end = mid - 1
         } else if arr[mid] < target {
